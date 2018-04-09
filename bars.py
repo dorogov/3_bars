@@ -34,9 +34,9 @@ def input_longitude_latitude():
     return longitude, latitude
 
 
-def get_closest_bar(bars_list, longitude, latitude):
+def list_distances(bars_list, longitude, latitude):
     list_distance = []
-    for num_bar in range(len(bars_info)):
+    for num_bar in range(len(bars_list)):
         list_distance.append(
             (
                 num_bar,
@@ -46,8 +46,11 @@ def get_closest_bar(bars_list, longitude, latitude):
                 ).meters
             )
         )
-    min_dist_bar_number = min(list_distance, key=lambda dist: dist[1])[0]
-    return bars_info[min_dist_bar_number]
+    return list_distance
+
+
+def get_closest_bar(list_distance):
+    return min(list_distance, key=lambda dist: dist[1])[0]
 
 
 def get_args():
@@ -79,7 +82,7 @@ if __name__ == '__main__':
         'The closest bar is: {}\n'.format(
             get_bar_name(get_biggest_bar(bars_list)),
             get_bar_name(get_smallest_bar(bars_list)),
-            get_bar_name(get_closest_bar(bars_list, object_geoposition[0], object_geoposition[1]))
+            get_bar_name(get_closest_bar(list_distances(bars_list, object_geoposition[0], object_geoposition[1])))
         )
 
     )
