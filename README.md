@@ -13,6 +13,11 @@ $ pip install geopy
 $ python bars.py # possibly requires call of python3 executive instead of just python
 
 ```
+ввод ширины долготы в десятичных:
+```bash
+Input longitude, latitude:55.55 66.66
+```
+
 Вывод:
 ```bash
 >>>The biggest bar is: Спорт бар «Красная машина»
