@@ -32,8 +32,8 @@ def get_closest_bar(bar_list, user_location):
     return closest_bar
 
 
-def get_bar_list(json_data):
-    return json_data['features']
+def get_bar_list(data_from_json_file):
+    return data_from_json_file['features']
 
 
 def get_bar_point(bar):
@@ -52,7 +52,7 @@ def get_commandline_arguments():
 
 
 if __name__ == '__main__':
-    json_data = load_data(get_commandline_arguments().filepath)
+    data_from_json_file = load_data(get_commandline_arguments().filepath)
     bar_list = get_bar_list(json_data)
     try:
         user_longitude, user_latitude = map(
